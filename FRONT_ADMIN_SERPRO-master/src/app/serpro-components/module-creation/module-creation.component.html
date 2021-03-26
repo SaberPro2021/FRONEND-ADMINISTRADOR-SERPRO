@@ -1,0 +1,52 @@
+<p-card header="CREAR UN MODULO">
+
+  <br><br>
+
+
+  <p-card header="Area de conocimiento" >
+      <div>
+          <input type ="text" class="p-inputtext-lg" name="knowledgeArea" [(ngModel)]="icfesModule.knowledgeArea" >
+      </div>
+      <p-footer>
+        <div class="alert-danger" *ngIf="formsCorrect == false">
+          <div class="container-error-message" >
+            El area de conocimiento es requerido
+          </div>
+        </div>
+      </p-footer>
+  </p-card>
+
+  <p-card header="Descripcion" >
+    <div>
+      <input type ="text" class="p-inputtext-lg" name="description" [(ngModel)]="icfesModule.description" >
+    </div>
+    <p-footer>
+      <div class="alert-danger" *ngIf="formsCorrect == false">
+        <div class="container-error-message" >
+          Se requiere una descipcion del modulo
+        </div>
+      </div>
+    </p-footer>
+  </p-card>
+
+  <p-card header="Asunto de evaluacion"  >
+    <div>
+      <input type ="text" class="p-inputtext-lg"  name="evaluationSubject" [(ngModel)]="icfesModule.evaluationSubject" >
+    </div>
+    <p-footer>
+      <div class="alert-danger" *ngIf="formsCorrect == false">
+        <div class="container-error-message" >
+          Se requiere el tipo de modulo
+        </div>
+      </div>
+    </p-footer>
+  </p-card>
+
+  <p-dialog header="Confirmacion" [(visible)]="display">
+    {{mensaje}}
+  </p-dialog>
+
+
+  <button pButton type="button" label="GUARDAR MODULO" (click)="saveIcfesModule()"  ></button>
+
+</p-card>
