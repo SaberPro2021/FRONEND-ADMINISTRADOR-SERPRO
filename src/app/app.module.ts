@@ -31,6 +31,8 @@ import { ModuleComponent } from './serpro-components/module-creation/module-crea
 import { TestCreationComponent } from './serpro-components/test-creation/test-creation.component';
 import { MenuComponent } from './menu/menu.component'
 import {DialogModule} from 'primeng/dialog';
+import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -42,7 +44,8 @@ import {DialogModule} from 'primeng/dialog';
     SerproNgQuillComponent,
     ModuleComponent,
     TestCreationComponent,
-    MenuComponent    
+    MenuComponent,
+    LoginComponent    
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ import {DialogModule} from 'primeng/dialog';
     ListboxModule,
     TableModule,
     TabMenuModule,
-    DialogModule
+    DialogModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
