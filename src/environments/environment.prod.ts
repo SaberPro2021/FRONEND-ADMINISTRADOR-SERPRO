@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   multipleSelectionQuestionType: 'multiple-selection',
   urlApiQuestionsSerpro:  window["env"]["apiUrl"] || "default"
 };

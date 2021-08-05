@@ -10,8 +10,13 @@ import {MenuItem} from 'primeng/api';
 export class MenuComponent implements OnInit {
 
   items: MenuItem[];
+  email : string;
+  job : string;
 
-  constructor() { }
+  constructor() {
+    this.email = sessionStorage.getItem('emailSession');
+    this.job = sessionStorage.getItem('jobUser');
+   }
 
   ngOnInit(): void {
     this.items = [

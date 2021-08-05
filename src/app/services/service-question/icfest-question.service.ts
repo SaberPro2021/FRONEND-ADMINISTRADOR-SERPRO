@@ -13,7 +13,7 @@ export class IcfestQuestionService {
 
   createQuestion (question: Question) {
     console.log ("Question",question); 
-    return this.httpClient.post(`${environment.urlApiQuestionsSerpro}/question`, question).subscribe(
+    return this.httpClient.post(`${environment.urlApiQuestionsSerpro}/question`, question,  {withCredentials: true}).subscribe(
       (response) =>{
         console.log (response);
       },
@@ -24,6 +24,6 @@ export class IcfestQuestionService {
   }
 
   getQuestions(){
-    return this.httpClient.get(`${environment.urlApiQuestionsSerpro}/question`);
+    return this.httpClient.get(`${environment.urlApiQuestionsSerpro}/question`,  {withCredentials: true});
   }
 }

@@ -13,11 +13,11 @@ export class IcfestModuleService {
   }
 
   getIcfesModule(){
-    return this.http.get(`${environment.urlApiQuestionsSerpro}/module`);
+    return this.http.get(`${environment.urlApiQuestionsSerpro}/module`,  {withCredentials: true});
   }
 
   posIcfesModule(icfesModule:IcfesModule)  {
-    return this.http.post(`${environment.urlApiQuestionsSerpro}/module`, icfesModule).subscribe(
+    return this.http.post(`${environment.urlApiQuestionsSerpro}/module`, icfesModule, {withCredentials: true}).subscribe(
       (response) =>{
         console.log (response);
       },

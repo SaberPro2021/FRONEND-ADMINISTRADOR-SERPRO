@@ -18,11 +18,11 @@ export class IcfesTestService {
    }
 
   getIcfesTest(){
-    return this.http.get(`${environment.urlApiQuestionsSerpro}/icfesTest`);
+    return this.http.get(`${environment.urlApiQuestionsSerpro}/icfesTest`,  {withCredentials: true});
   }
 
   posIcfesModule(icfesTests: IcfesTest)  {
-    return this.http.post(`${environment.urlApiQuestionsSerpro}/icfesTest`, icfesTests).subscribe(
+    return this.http.post(`${environment.urlApiQuestionsSerpro}/icfesTest`, icfesTests,  {withCredentials: true}).subscribe(
       (response) =>{
         console.log (response);
       },
