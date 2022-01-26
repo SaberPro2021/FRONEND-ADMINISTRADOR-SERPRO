@@ -1,0 +1,21 @@
+#editor img {
+    width: 150px;
+}
+
+.alert-danger{
+
+  color: #721c24;
+  background: #f8d7da;
+  border-color: #f5c6cb;
+  margin-bottom: 5px;
+
+}
+
+.container-error-message{
+  padding: 3px;
+
+}
+
+.p-inputtext-lg{
+  width: 100%;
+}

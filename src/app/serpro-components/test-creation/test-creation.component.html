@@ -1,0 +1,76 @@
+<p-card header="CREAR UN TEST">
+  <br><br>
+
+  
+  <p-card header ="Modulo">
+    <p-dropdown [options]="itemsModules" [style]="{'width': '100%'}"
+    [(ngModel)]="icfesTest.moduleId" placeholder="Selecciona el modulo" [virtualScroll]="true" [itemSize]="31" [filter]="false"></p-dropdown>
+  </p-card>
+
+
+  <p-card header="Titulo">
+      <div>
+        <input type ="text" class="p-inputtext-lg" [(ngModel)]="icfesTest.title" >
+      </div>
+      <p-footer>
+        <div class="alert-danger">
+          <div class="container-error-message" >
+
+          </div>
+        </div>
+      </p-footer>
+  </p-card>
+
+  <p-card header="Descripcion">
+      <div>
+        <input type ="text" class="p-inputtext-lg" name="description" [(ngModel)]="icfesTest.description" >
+      </div>
+      <p-footer>
+        <div class="alert-danger">
+          <div class="container-error-message" >
+
+          </div>
+        </div>
+      </p-footer>
+  </p-card> 
+
+  <p-card header ="Preguntas">
+
+
+    <p-card>
+      <p-table [value]="questionsSelected">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Titulo</th>
+            <th>Enunciado</th>
+            <th> </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-question>
+          <tr>
+            <td>{{question.title}}</td>
+            <td [innerHtml]="question.statement"></td>
+            <td>
+              <a (click)="deleteQuestion(question._id)">
+                <i class="pi pi-times"></i>
+              </a>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+    </p-card>
+
+    <p-dropdown [options]="itemsQuestions" [style]="{'width': '100%'}"
+    [(ngModel)]="itemQuestion" placeholder="Selecciona la pregunta" [virtualScroll]="true" [filter]="true"></p-dropdown>
+    <button pButton type="button" label="GUARDAR PREGUNTA" (click)="updateList ()" ></button>
+  </p-card>
+
+  <p-dialog header="Confirmacion" [(visible)]="display">
+    {{mensaje}}
+  </p-dialog>
+
+  <button pButton type="button" label="GUARDAR PRUEBA" (click)="saveQuestion()"  ></button>
+
+
+</p-card>
