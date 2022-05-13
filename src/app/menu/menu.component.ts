@@ -20,10 +20,10 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      {label: 'Crear Modelo', icon: 'pi pi-fw pi-pencil', routerLink: ['/addModule']},
-      {label: 'Crear Prueba', icon: 'pi pi-fw pi-pencil', routerLink: ['/addTest']},
-      {label: 'Crear Pregunta', icon: 'pi pi-fw pi-pencil', routerLink: ['/addQuestion']}
+      {label: 'SerProAdmin', icon: 'pi pi-fw pi-cog'},
+      {label: 'Nuevo Módulo', icon: 'pi pi-fw pi-pencil', routerLink: ['/addModule']},
+      {label: 'Nueva Prueba', icon: 'pi pi-fw pi-pencil', routerLink: ['/addTest']},
+      {label: 'Nueva Pregunta', icon: 'pi pi-fw pi-pencil', routerLink: ['/addQuestion']}
     ]
   }
-
 }

@@ -1,16 +1,15 @@
-<p-card header="CREAR UN TEST">
-  <br><br>
-
-  
-  <p-card header ="Modulo">
-    <p-dropdown [options]="itemsModules" [style]="{'width': '100%'}"
+<div class="box">
+  <div id="formContent"><br>
+<h2>NUEVA PRUEBA</h2>
+  <br>
+  <p-card>
+  <h5>Módulo</h5>
+    <p-dropdown [options]="itemsModules" [style]="{'width': '80%'}"
     [(ngModel)]="icfesTest.moduleId" placeholder="Selecciona el modulo" [virtualScroll]="true" [itemSize]="31" [filter]="false"></p-dropdown>
-  </p-card>
-
-
-  <p-card header="Titulo">
+    <br><br>
+  <h5>Título</h5>
       <div>
-        <input type ="text" class="p-inputtext-lg" [(ngModel)]="icfesTest.title" >
+        <input type ="text" class="type_text" [(ngModel)]="icfesTest.title" >
       </div>
       <p-footer>
         <div class="alert-danger">
@@ -19,11 +18,9 @@
           </div>
         </div>
       </p-footer>
-  </p-card>
-
-  <p-card header="Descripcion">
+  <br><h5>Descripcion</h5>
       <div>
-        <input type ="text" class="p-inputtext-lg" name="description" [(ngModel)]="icfesTest.description" >
+        <input type ="text" class="type_text" name="description" [(ngModel)]="icfesTest.description" >
       </div>
       <p-footer>
         <div class="alert-danger">
@@ -32,16 +29,12 @@
           </div>
         </div>
       </p-footer>
-  </p-card> 
-
-  <p-card header ="Preguntas">
-
-
+  <br><h5>Preguntas</h5>
     <p-card>
       <p-table [value]="questionsSelected">
         <ng-template pTemplate="header">
           <tr>
-            <th>Titulo</th>
+            <th>Título</th>
             <th>Enunciado</th>
             <th> </th>
           </tr>
@@ -58,19 +51,15 @@
           </tr>
         </ng-template>
       </p-table>
-
-    </p-card>
-
-    <p-dropdown [options]="itemsQuestions" [style]="{'width': '100%'}"
-    [(ngModel)]="itemQuestion" placeholder="Selecciona la pregunta" [virtualScroll]="true" [filter]="true"></p-dropdown>
-    <button pButton type="button" label="GUARDAR PREGUNTA" (click)="updateList ()" ></button>
+    <p-dropdown [options]="itemsQuestions" [style]="{'width': '80%'}"
+    [(ngModel)]="itemQuestion" placeholder="Selecciona la pregunta" [virtualScroll]="true" [filter]="true"></p-dropdown><br><br>
   </p-card>
-
+  <br>
+    <button pButton type="button" label="GUARDAR PREGUNTA" (click)="updateList ()" ></button>&nbsp;
   <p-dialog header="Confirmacion" [(visible)]="display">
     {{mensaje}}
   </p-dialog>
-
-  <button pButton type="button" label="GUARDAR PRUEBA" (click)="saveQuestion()"  ></button>
-
-
+  <button pButton type="button" class="warning" label="GUARDAR PRUEBA" (click)="saveQuestion()"  ></button>
 </p-card>
+</div>
+</div>

@@ -1,6 +1,5 @@
 <br><br>
-
-<p-card header="Modulo">
+<h5>Módulo</h5>
   <div>
     <p-dropdown [options]="items" [(ngModel)]="question.icfesModuleId" placeholder="Seleccione el Modulo" [virtualScroll]="true" [itemSize]="31" [filter]="false" [style]="{'width': '100%'}"></p-dropdown>
   </div>
@@ -11,12 +10,10 @@
       </div>
     </div>
   </p-footer>
-</p-card>
-
-
-<p-card header="Titulo">
+<br>
+<h5>Titulo</h5>
   <div>
-    <input type ="text" class="p-inputtext-lg" [(ngModel)]="question.title">
+    <input type ="text" class="type_text" [(ngModel)]="question.title">
   </div>
   <p-footer>
     <div class="alert-danger" *ngIf="formsCorrect == false">
@@ -25,9 +22,8 @@
       </div>
     </div>
   </p-footer>
-</p-card>
-
-<p-card header="Enunciado de la pregunta">
+<br>
+<h5>Enunciado de la pregunta</h5>
     <div>
         <serpro-ng-quill [idEditor]="'questionStatement'" name="questionStatement" [(ngModel)]="question.statement" ></serpro-ng-quill>
     </div>
@@ -41,7 +37,6 @@
         </div>
       </div>
     </p-footer>
-</p-card>
 
 <!--<hr>-->
 <p-card header="Respuestas ">
@@ -98,7 +93,7 @@
 </p-card>
 
 <p-dialog header="Confirmacion" [(visible)]="display">
-  la pregunta se ha subido correctamente
+  La pregunta se ha subido correctamente
 </p-dialog>
-
+<br>
 <button pButton type="button" label="GUARDAR PREGUNTA" (click)="saveQuestion ()"></button>

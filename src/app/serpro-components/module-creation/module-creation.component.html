@@ -1,52 +1,52 @@
-<p-card header="CREAR UN MODULO">
-
+<div class="box">
+  <div id="formContent"><br>
+    <h2>NUEVO MÓDULO</h2>
   <br><br>
 
 
-  <p-card header="Area de conocimiento" >
+  <h5>Área de conocimiento</h5>
       <div>
-          <input type ="text" class="p-inputtext-lg" name="knowledgeArea" [(ngModel)]="icfesModule.knowledgeArea" >
+          <input type ="text" class="type_text" name="knowledgeArea" [(ngModel)]="icfesModule.knowledgeArea" >
       </div>
       <p-footer>
         <div class="alert-danger" *ngIf="formsCorrect == false">
           <div class="container-error-message" >
-            El area de conocimiento es requerido
+            El área de conocimiento es requerido
           </div>
         </div>
       </p-footer>
-  </p-card>
-
-  <p-card header="Descripcion" >
+<br>
+  <h5>Descripción del módulo</h5>
     <div>
-      <input type ="text" class="p-inputtext-lg" name="description" [(ngModel)]="icfesModule.description" >
+      <input type ="text" class="type_text" name="description" [(ngModel)]="icfesModule.description" >
     </div>
     <p-footer>
       <div class="alert-danger" *ngIf="formsCorrect == false">
         <div class="container-error-message" >
-          Se requiere una descipcion del modulo
+          Se requiere una descripción del módulo
         </div>
       </div>
     </p-footer>
-  </p-card>
-
-  <p-card header="Asunto de evaluacion"  >
+    <br>
+  <h5>Asunto de evaluación</h5>
     <div>
-      <input type ="text" class="p-inputtext-lg"  name="evaluationSubject" [(ngModel)]="icfesModule.evaluationSubject" >
+      <input type ="text" class="type_text" name="evaluationSubject" [(ngModel)]="icfesModule.evaluationSubject" >
     </div>
     <p-footer>
       <div class="alert-danger" *ngIf="formsCorrect == false">
         <div class="container-error-message" >
-          Se requiere el tipo de modulo
+          Se requiere el tipo de módulo
         </div>
       </div>
     </p-footer>
-  </p-card>
 
   <p-dialog header="Confirmacion" [(visible)]="display">
     {{mensaje}}
   </p-dialog>
 
+  <br>
+  <button pButton type="button" label="CREAR MÓDULO" (click)="saveIcfesModule()"  ></button>
+  <br>
+</div>
+</div>
 
-  <button pButton type="button" label="GUARDAR MODULO" (click)="saveIcfesModule()"  ></button>
-
-</p-card>

@@ -9,7 +9,7 @@ import { IcfesModule } from '../../models/module.model'
   styleUrls: ['./module-creation.component.css']
 })
 export class ModuleComponent implements OnInit {
-  
+
   icfesModule: IcfesModule;
   formsCorrect : boolean = true;
   items: SelectItem[];
