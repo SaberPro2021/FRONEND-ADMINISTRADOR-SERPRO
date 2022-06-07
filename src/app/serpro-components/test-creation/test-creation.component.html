@@ -9,7 +9,7 @@
     <br><br>
   <h5>Título</h5>
       <div>
-        <input type ="text" class="type_text" [(ngModel)]="icfesTest.title" >
+        <input type ="text" class="form-control" [(ngModel)]="icfesTest.title" placeholder="Título" >
       </div>
       <p-footer>
         <div class="alert-danger">
@@ -18,9 +18,9 @@
           </div>
         </div>
       </p-footer>
-  <br><h5>Descripcion</h5>
+  <br><h5>Descripción</h5>
       <div>
-        <input type ="text" class="type_text" name="description" [(ngModel)]="icfesTest.description" >
+        <input type ="text" class="form-control" name="description" [(ngModel)]="icfesTest.description" placeholder="Descripción" >
       </div>
       <p-footer>
         <div class="alert-danger">
@@ -55,11 +55,11 @@
     [(ngModel)]="itemQuestion" placeholder="Selecciona la pregunta" [virtualScroll]="true" [filter]="true"></p-dropdown><br><br>
   </p-card>
   <br>
-    <button pButton type="button" label="GUARDAR PREGUNTA" (click)="updateList ()" ></button>&nbsp;
+    <button pButton type="button" class="btn btn-primary" label="GUARDAR PREGUNTA" (click)="updateList ()" ></button>&nbsp;
   <p-dialog header="Confirmacion" [(visible)]="display">
     {{mensaje}}
   </p-dialog>
-  <button pButton type="button" class="warning" label="GUARDAR PRUEBA" (click)="saveQuestion()"  ></button>
+  <button pButton type="button" class="btn btn-warning" label="GUARDAR PRUEBA" (click)="saveQuestion()"  ></button>
 </p-card>
 </div>
 </div>

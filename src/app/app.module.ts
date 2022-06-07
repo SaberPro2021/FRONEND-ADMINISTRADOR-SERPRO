@@ -19,7 +19,7 @@ import {CardModule} from 'primeng/card';
 import {SliderModule} from 'primeng/slider';
 import {AccordionModule} from 'primeng/accordion';
 import {DropdownModule} from 'primeng/dropdown';
-import {MultiSelectModule} from 'primeng/multiselect';             
+import {MultiSelectModule} from 'primeng/multiselect';
 import {ListboxModule} from 'primeng/listbox';
 import {TableModule} from 'primeng/table';
 import {TabMenuModule} from 'primeng/tabmenu';
@@ -45,7 +45,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ModuleComponent,
     TestCreationComponent,
     MenuComponent,
-    LoginComponent    
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +58,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CardModule,
     SliderModule,
     FormsModule,
-    AccordionModule,    
+    AccordionModule,
     HttpClientModule,
     DropdownModule,
     MultiSelectModule,

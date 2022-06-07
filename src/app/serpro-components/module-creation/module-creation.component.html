@@ -6,7 +6,7 @@
 
   <h5>Área de conocimiento</h5>
       <div>
-          <input type ="text" class="type_text" name="knowledgeArea" [(ngModel)]="icfesModule.knowledgeArea" >
+          <input type ="text" class="form-control" name="knowledgeArea" [(ngModel)]="icfesModule.knowledgeArea" placeholder="Área de conocimiento">
       </div>
       <p-footer>
         <div class="alert-danger" *ngIf="formsCorrect == false">
@@ -18,7 +18,7 @@
 <br>
   <h5>Descripción del módulo</h5>
     <div>
-      <input type ="text" class="type_text" name="description" [(ngModel)]="icfesModule.description" >
+      <input type ="text" class="form-control" name="description" [(ngModel)]="icfesModule.description" placeholder="Descripción del módulo">
     </div>
     <p-footer>
       <div class="alert-danger" *ngIf="formsCorrect == false">
@@ -30,7 +30,7 @@
     <br>
   <h5>Asunto de evaluación</h5>
     <div>
-      <input type ="text" class="type_text" name="evaluationSubject" [(ngModel)]="icfesModule.evaluationSubject" >
+      <input type ="text" class="form-control" name="evaluationSubject" [(ngModel)]="icfesModule.evaluationSubject" placeholder="Asunto de evaluación" >
     </div>
     <p-footer>
       <div class="alert-danger" *ngIf="formsCorrect == false">
@@ -45,8 +45,7 @@
   </p-dialog>
 
   <br>
-  <button pButton type="button" label="CREAR MÓDULO" (click)="saveIcfesModule()"  ></button>
+  <button pButton type="button" class="btn btn-primary" label="CREAR MÓDULO" (click)="saveIcfesModule()"  ></button>
   <br>
 </div>
 </div>
-
