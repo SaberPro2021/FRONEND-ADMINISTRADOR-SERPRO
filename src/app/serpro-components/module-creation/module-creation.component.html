@@ -19,7 +19,7 @@
 <br>
   <h5>Descripción del módulo</h5>
     <div>
-      <input type ="text" class="form-control" name="description" [(ngModel)]="icfesModule.description" placeholder="Descripción del módulo">
+      <input type ="text" class="form-control" name="description" [(ngModel)]="icfesModule.description" placeholder="Descripción del módulo" maxlength="170"/>
     </div>
     <p-footer>
       <div class="alert-danger" *ngIf="formsCorrect == false">
