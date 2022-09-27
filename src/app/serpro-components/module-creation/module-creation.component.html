@@ -3,8 +3,12 @@
   <div id="formContent"><br>
     <h2>NUEVO MÓDULO</h2>
   <br><br>
-
-
+  <div class="form-group">
+    <h5>Imagen Módulo</h5><br>
+    <input #file type="file" accept='image/*' (change)="preview(file.files)" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" [(ngModel)]="icfesModule.imageModule"/>
+  </div><br>
+    <img [src]="imgURL" height="150" width="150" *ngIf="imgURL">
+<br><br>
   <h5>Área de conocimiento</h5>
       <div>
           <input type ="text" class="form-control" name="knowledgeArea" [(ngModel)]="icfesModule.knowledgeArea" placeholder="Área de conocimiento">

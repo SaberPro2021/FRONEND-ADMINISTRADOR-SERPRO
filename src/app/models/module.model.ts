@@ -6,4 +6,5 @@ export class IcfesModule {
     description: string;
     evaluationSubject: string;
     testsList: IcfesTest [];
+    imageModule: string;
 }

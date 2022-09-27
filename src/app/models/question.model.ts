@@ -18,7 +18,7 @@ export class Question {
         } else {
             this.answers = [];
         }
-        this.questionType = type;        
+        this.questionType = type;
         this.feedback = feedback;
     }
 }

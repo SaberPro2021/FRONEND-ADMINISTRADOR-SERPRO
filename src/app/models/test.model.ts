@@ -6,6 +6,7 @@ export class IcfesTest {
     progress: number;
     moduleId: String;
     questions: String[];
+    imageTest: string;
 
     constructor () {
       this.questions = new Array <String>();

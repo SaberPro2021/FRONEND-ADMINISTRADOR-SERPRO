@@ -3,6 +3,12 @@
   <div id="formContent"><br>
 <h2>NUEVA PRUEBA</h2>
   <br>
+  <div class="form-group">
+    <h5>Imagen Módulo</h5><br>
+    <input #file type="file" accept='image/*' (change)="preview(file.files)" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" [(ngModel)]="icfesTest.imageTest"/>
+  </div><br>
+    <img [src]="imgURL" height="150" width="150" *ngIf="imgURL">
+<br><br>
   <p-card>
   <h5>Módulo</h5>
     <p-dropdown [options]="itemsModules" [style]="{'width': '80%'}"

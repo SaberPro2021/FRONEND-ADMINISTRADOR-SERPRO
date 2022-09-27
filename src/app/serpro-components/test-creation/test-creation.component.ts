@@ -18,6 +18,9 @@ export class TestCreationComponent implements OnInit {
   itemModule: string;
   display: boolean = false;
   mensaje: String;
+  public imagePath;
+  imgURL: any;
+  public message: string;
 
   itemsQuestions: SelectItem[];
   itemQuestion: Question;
@@ -28,16 +31,16 @@ export class TestCreationComponent implements OnInit {
     private icfesTestService: IcfesTestService,
     private icfestQuestionService: IcfestQuestionService,
     private icfesModuleServices: IcfestModuleService
-  ) { 
+  ) {
     this.mensaje = "Algo falta por llenar, \n Por favor revise los campos que ningunno se encuentre vacio";
     this.questionsSelected = [];
-    
+
     this.icfesTest = new IcfesTest();
     this.icfesModuleServices.getIcfesModule().subscribe((res: any)=>{
       this.itemsModules = [];
         for (let i = 0; i < res.length; i++) {
             this.itemsModules.push({label: res[i].knowledgeArea, value: res[i]._id});
-        }  
+        }
     });
 
     this.icfestQuestionService.getQuestions().subscribe((res: any)=>{
@@ -55,6 +58,29 @@ export class TestCreationComponent implements OnInit {
   showDialog() {
     this.display = true;
   }
+
+  preview(files) {
+    if (files.length === 0)
+      return;
+
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported.";
+      return;
+    }
+
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      this.imgURL = reader.result;
+    }
+  }
+
+  onFileChanged(e){
+    this.icfesTest.imageTest;
+  }
+
 
   deleteQuestion(_id: String){
     let posDelete;
@@ -85,7 +111,7 @@ export class TestCreationComponent implements OnInit {
           if(this.icfesTest.questions != null){
             if(this.icfesTest.title != null){
               this.icfesTestService.posIcfesModule(this.icfesTest);
-              this.mensaje = "La prueba se ha subido correctamente"; 
+              this.mensaje = "La prueba se ha subido correctamente";
               this.showDialog();
             }else {
               this.showDialog();
@@ -103,8 +129,8 @@ export class TestCreationComponent implements OnInit {
     }catch (err){
       this.showDialog();
     }
-    
-    
+
+
   }
 
 }

@@ -1,3 +1,4 @@
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -33,6 +34,7 @@ import { MenuComponent } from './menu/menu.component'
 import {DialogModule} from 'primeng/dialog';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -66,7 +68,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TableModule,
     TabMenuModule,
     DialogModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    AlifeFileToBase64Module,
   ],
   providers: [],
   bootstrap: [AppComponent]

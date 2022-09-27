@@ -21,6 +21,9 @@ export class MultipleSelctionQuestionComponent implements OnInit {
   items: SelectItem[];
   item: string;
   display: boolean = false;
+  public imagePath;
+  imgURL: any;
+  public message: string;
 
   constructor(
     private icfestModuleService : IcfestModuleService,
@@ -37,13 +40,15 @@ export class MultipleSelctionQuestionComponent implements OnInit {
       this.items = [];
         for (let i = 0; i < res.length; i++) {
             this.items.push({label: res[i].knowledgeArea, value: res[i]._id});
-        }  
+        }
     });
   }
 
   ngOnInit(): void {
 
   }
+
+
 
   showDialog() {
     this.display = true;
@@ -70,7 +75,7 @@ export class MultipleSelctionQuestionComponent implements OnInit {
 
 
   saveQuestion () {
-  
+
     let ansWrds = this.question.answers;
 
     if(this.question.title != null){
@@ -88,7 +93,7 @@ export class MultipleSelctionQuestionComponent implements OnInit {
             this.showDialog();
           }else{
             this.formsCorrect =false;
-            
+
           }
         }
         else{
