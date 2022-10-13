@@ -61,6 +61,7 @@ export class ModuleComponent implements OnInit {
       if(this.icfesModule.description != null){
         if(this.icfesModule.evaluationSubject != null){
           if(this.icfesModule.knowledgeArea != null){
+            console.log(this.icfesModule, "icfes module")
             this.icfesModuleService.posIcfesModule(this.icfesModule);
             this.mensaje = "El modulo se ha subido correctamente";
             this.showDialog();

@@ -38,6 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     ReactiveFormsModule,
     AlifeFileToBase64Module,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
