@@ -1,0 +1,99 @@
+<br><br>
+<h5>Módulo</h5>
+  <div>
+    <p-dropdown [options]="items" [(ngModel)]="question.icfesModuleId" placeholder="Seleccione el Modulo" [virtualScroll]="true" [itemSize]="31" [filter]="false" [style]="{'width': '100%'}"></p-dropdown>
+  </div>
+  <p-footer>
+    <div class="alert-danger" *ngIf="formsCorrect == false">
+      <div class="container-error-message" >
+        Se requiere agregar el area de conocimiento
+      </div>
+    </div>
+  </p-footer>
+<br>
+<h5>Titulo</h5>
+  <div>
+    <input type ="text" class="form-control" [(ngModel)]="question.title" placeholder="Título">
+  </div>
+  <p-footer>
+    <div class="alert-danger" *ngIf="formsCorrect == false">
+      <div class="container-error-message" >
+        Se requiere agregar el titulo
+      </div>
+    </div>
+  </p-footer>
+<br>
+<h5>Enunciado de la pregunta</h5>
+    <div>
+        <serpro-ng-quill [idEditor]="'questionStatement'" name="questionStatement" [(ngModel)]="question.statement" ></serpro-ng-quill>
+    </div>
+    <p-footer>
+
+        Instruccion y descripcion de lo que es un enunciado de pregunta
+
+      <div class="alert-danger" *ngIf="formsCorrect == false">
+        <div class="container-error-message" >
+          El enunciado es requerido
+        </div>
+      </div>
+    </p-footer>
+
+<!--<hr>-->
+<p-card header="Respuestas ">
+  <div *ngFor="let answer of question.answers; let indexAnswer = index">
+
+        <p-card header="Respuesta {{indexAnswer+1}}">
+            <p-header>
+                <br><button *ngIf="indexAnswer != 0 && indexAnswer != 1" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger" (click)="removeAnswer (indexAnswer)" [style]="{ 'margin-left':'1040px'}"></button>
+            </p-header>
+            <serpro-ng-quill  [idEditor]="'answerStatement' + indexAnswer" name="questionStatement" [(ngModel)]="answer.statement" ></serpro-ng-quill>
+            <p-footer>
+                <div>
+                    <h5>Calificación: {{answer.grade}}</h5>
+                <div >
+                    <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-danger p-button-outlined" (click)="changeGradeValue (answer, -10)" [style]="{'margin-left':'10px'}"></button>
+
+                  <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-outlined" (click)="changeGradeValue (answer, 10)" [style]="{'margin-left':'10px'}"></button> <br/>
+                  <br><p-slider [(ngModel)]="answer.grade" [min]="-100" [max]="100"  [step]="10" [style]="{'width':'50%'}"></p-slider>
+                </div>
+
+                </div>
+
+                <p>
+                    El valor de la calificacion debe estar entre -100% y 100%.
+                    Asigna 100%
+                </p>
+              <div class="alert-danger" *ngIf="formsCorrect == false">
+                <div class="container-error-message" >
+                  Validar la respuesta
+                </div>
+              </div>
+            </p-footer>
+        </p-card>
+    <br>
+    </div>
+    <p-footer>
+        <button pButton type="button" label="Adicionar Respuesta" (click)="addNewAnswer ()"></button>
+    </p-footer>
+</p-card>
+
+<p-card header="Retroalimentacion">
+    <div>
+        <serpro-ng-quill   [idEditor]="'questionFeedback'" name="questionStatement" [(ngModel)]="question.feedback" ></serpro-ng-quill>
+    </div>
+    <p-footer>
+        Incluir la retroalimentación para esta pregunta
+
+      <div class="alert-danger" *ngIf="formsCorrect == false">
+        <div class="container-error-message" >
+          Se requiere la retroalimentación
+        </div>
+      </div>
+    </p-footer>
+</p-card>
+
+<p-dialog header="Confirmacion" [(visible)]="display">
+  La pregunta se ha subido correctamente
+</p-dialog>
+<br>
+<button pButton type="button" class="btn btn-primary" label="GUARDAR PREGUNTA" (click)="saveQuestion ()"></button>

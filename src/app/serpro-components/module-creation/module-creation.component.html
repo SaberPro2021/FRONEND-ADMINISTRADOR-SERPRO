@@ -1,56 +1,90 @@
 <app-menu></app-menu>
 <div class="box">
-  <div id="formContent"><br>
+  <div id="formContent">
+    <br />
     <h2>NUEVO MÓDULO</h2>
-  <br><br>
-  <div class="form-group">
-    <h5>Imagen Módulo</h5><br>
-    <input #file type="file" accept='image/*' (change)="preview(file.files)" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" [(ngModel)]="icfesModule.imageModule"/>
-  </div><br>
-    <img [src]="imgURL" height="150" width="150" *ngIf="imgURL">
-<br><br>
-  <h5>Área de conocimiento</h5>
-      <div>
-          <input type ="text" class="form-control" name="knowledgeArea" [(ngModel)]="icfesModule.knowledgeArea" placeholder="Área de conocimiento">
-      </div>
-      <p-footer>
-        <div class="alert-danger" *ngIf="formsCorrect == false">
-          <div class="container-error-message" >
-            El área de conocimiento es requerido
-          </div>
-        </div>
-      </p-footer>
-<br>
-  <h5>Descripción del módulo</h5>
+    <br /><br />
+    <div class="form-group">
+      <h5>Imagen Módulo</h5>
+      <br />
+      <input
+        #file
+        type="file"
+        accept="image/*"
+        (change)="preview(file.files)"
+        alife-file-to-base64
+        (onFileChanged)="onFileChanged($event)"
+        [(ngModel)]="icfesModule.imageModule"
+      />
+    </div>
+    <br />
+    <img [src]="imgURL" height="150" width="150" *ngIf="imgURL" />
+    <br /><br />
+    <h5>Área de conocimiento</h5>
     <div>
-      <input type ="text" class="form-control" name="description" [(ngModel)]="icfesModule.description" placeholder="Descripción del módulo" maxlength="170"/>
+      <input
+        type="text"
+        class="form-control"
+        name="knowledgeArea"
+        [(ngModel)]="icfesModule.knowledgeArea"
+        placeholder="Área de conocimiento"
+      />
     </div>
     <p-footer>
       <div class="alert-danger" *ngIf="formsCorrect == false">
-        <div class="container-error-message" >
+        <div class="container-error-message">
+          El área de conocimiento es requerido
+        </div>
+      </div>
+    </p-footer>
+    <br />
+    <h5>Descripción del módulo</h5>
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+        [(ngModel)]="icfesModule.description"
+        placeholder="Descripción del módulo"
+        maxlength="170"
+      />
+    </div>
+    <p-footer>
+      <div class="alert-danger" *ngIf="formsCorrect == false">
+        <div class="container-error-message">
           Se requiere una descripción del módulo
         </div>
       </div>
     </p-footer>
-    <br>
-  <h5>Asunto de evaluación</h5>
+    <br />
+    <h5>Asunto de evaluación</h5>
     <div>
-      <input type ="text" class="form-control" name="evaluationSubject" [(ngModel)]="icfesModule.evaluationSubject" placeholder="Asunto de evaluación" >
+      <input
+        type="text"
+        class="form-control"
+        name="evaluationSubject"
+        [(ngModel)]="icfesModule.evaluationSubject"
+        placeholder="Asunto de evaluación"
+      />
     </div>
     <p-footer>
       <div class="alert-danger" *ngIf="formsCorrect == false">
-        <div class="container-error-message" >
-          Se requiere el tipo de módulo
-        </div>
+        <div class="container-error-message">Se requiere el tipo de módulo</div>
       </div>
     </p-footer>
 
-  <p-dialog header="Confirmacion" [(visible)]="display">
-    {{mensaje}}
-  </p-dialog>
+    <p-dialog header="Confirmacion" [(visible)]="display">
+      {{ mensaje }}
+    </p-dialog>
 
-  <br>
-  <button pButton type="button" class="btn btn-primary" label="CREAR MÓDULO" (click)="saveIcfesModule()"  ></button>
-  <br>
-</div>
+    <br />
+    <button
+      pButton
+      type="button"
+      class="btn btn-primary"
+      label="CREAR MÓDULO"
+      (click)="saveIcfesModule()"
+    ></button>
+    <br />
+  </div>
 </div>

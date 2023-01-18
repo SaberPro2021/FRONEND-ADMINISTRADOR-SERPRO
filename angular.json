@@ -139,6 +139,9 @@
   },
   "defaultProject": "AdminSerPro",
   "cli": {
-    "analytics": "0658ebf0-e39d-4293-b1df-4452188f1296"
+    "analytics": "0658ebf0-e39d-4293-b1df-4452188f1296",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }

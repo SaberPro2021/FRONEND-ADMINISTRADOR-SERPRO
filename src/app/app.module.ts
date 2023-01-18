@@ -35,6 +35,7 @@ import {DialogModule} from 'primeng/dialog';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TruefalseQuestionComponent } from './serpro-components/question-creation/question/truefalse-question/truefalse-question.component';
 
 
 
@@ -48,7 +49,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ModuleComponent,
     TestCreationComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    TruefalseQuestionComponent
   ],
   imports: [
     BrowserModule,

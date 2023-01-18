@@ -1,0 +1,9 @@
+diff a/src/app/app-routing.module.ts b/src/app/app-routing.module.ts	(rejected hunks)
+@@ -9,7 +9,6 @@
+ 
+ const routes: Routes = [
+   {path: '', redirectTo:'login', pathMatch: 'full'},
+-  {path: 'addQuestion', component: QuestionCreationComponent},
+   {path: 'addModule', component: ModuleComponent, canActivate: [PermissionsGuard]},
+   {path: 'addTest', component: TestCreationComponent, canActivate: [PermissionsGuard]},
+   {path: 'addQuestion', component: QuestionCreationComponent, canActivate: [PermissionsGuard]},

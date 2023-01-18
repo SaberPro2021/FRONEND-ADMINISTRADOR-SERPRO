@@ -9,6 +9,7 @@ import { PermissionsGuard } from './guards/permissions.guard';
 
 const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch: 'full'},
+  {path: 'addQuestion', component: QuestionCreationComponent},
   {path: 'addModule', component: ModuleComponent, canActivate: [PermissionsGuard]},
   {path: 'addTest', component: TestCreationComponent, canActivate: [PermissionsGuard]},
   {path: 'addQuestion', component: QuestionCreationComponent, canActivate: [PermissionsGuard]},
