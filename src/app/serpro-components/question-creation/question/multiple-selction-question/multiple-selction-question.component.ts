@@ -65,6 +65,7 @@ export class MultipleSelctionQuestionComponent implements OnInit {
   removeAnswer (answerIndex) {
     this.question.answers.splice (answerIndex,1);
   }
+
   changeGradeValue (answer, increment: number) {
     if (answer.grade < 100 && increment >0) {
       answer.grade += increment;
@@ -73,22 +74,19 @@ export class MultipleSelctionQuestionComponent implements OnInit {
     }
   }
 
-
   saveQuestion () {
 
     let ansWrds = this.question.answers;
-
     if(this.question.title != null){
       if(this.question.icfesModuleId != null){
         if(this.question.statement != null){
+          if(this.question.feedback !=null){
           for (let i of ansWrds){
-            if (i.statement == undefined || i.grade==0){
+            if (i.statement == undefined){
               this.formsCorrect =false;
               break;
             }
           }
-          if(this.question.feedback != null) {
-            console.log("paso")
             this.icfestQuestionService.createQuestion(this.question);
             this.showDialog();
           }else{
@@ -102,6 +100,7 @@ export class MultipleSelctionQuestionComponent implements OnInit {
       }else{
         this.formsCorrect =false;
       }
+
     }
     else{
       this.formsCorrect =false;

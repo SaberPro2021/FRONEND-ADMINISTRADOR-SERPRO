@@ -62,10 +62,14 @@ export class ModuleComponent implements OnInit {
   }
 
   onFileChanged(files) {
-    this.convertFile(files.target.files[0]).subscribe(base64 => {
-      this.base64Output = base64;
-    });
+    this.base64Output = files[0].base64;
+
+
+    //this.convertFile(files.name).subscribe(base64 => {
+    //  this.base64Output = base64;
+    //});
   }
+
   convertFile(files : File) : Observable<string> {
     const result = new ReplaySubject<string>(1);
     const reader = new FileReader();
@@ -80,8 +84,7 @@ export class ModuleComponent implements OnInit {
       if (this.icfesModule.description != null) {
         if (this.icfesModule.evaluationSubject != null) {
           if (this.icfesModule.knowledgeArea != null) {
-            console.log(this.icfesModule, 'icfes module');
-            this.icfesModule.imageModule = this.imagePath[0]
+            this.icfesModule.imageModule = this.base64Output; //this.imagePath[0];
             this.icfesModuleService.posIcfesModule(this.icfesModule);
             this.mensaje = 'El modulo se ha subido correctamente';
             this.showDialog();

@@ -40,42 +40,59 @@
 
 <!--<hr>-->
 <p-card header="Respuestas ">
-  <div *ngFor="let answer of question.answers; let indexAnswer = index">
-
-        <p-card header="Respuesta {{indexAnswer+1}}">
-            <p-header>
-                <br><button *ngIf="indexAnswer != 0 && indexAnswer != 1" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger" (click)="removeAnswer (indexAnswer)" [style]="{ 'margin-left':'1040px'}"></button>
-            </p-header>
-            <serpro-ng-quill  [idEditor]="'answerStatement' + indexAnswer" name="questionStatement" [(ngModel)]="answer.statement" ></serpro-ng-quill>
-            <p-footer>
-                <div>
-                    <h5>Calificación: {{answer.grade}}</h5>
-                <div >
-                    <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-danger p-button-outlined" (click)="changeGradeValue (answer, -10)" [style]="{'margin-left':'10px'}"></button>
-
-                  <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-outlined" (click)="changeGradeValue (answer, 10)" [style]="{'margin-left':'10px'}"></button> <br/>
-                  <br><p-slider [(ngModel)]="answer.grade" [min]="-100" [max]="100"  [step]="10" [style]="{'width':'50%'}"></p-slider>
-                </div>
-
-                </div>
-
-                <p>
-                    El valor de la calificacion debe estar entre -100% y 100%.
-                    Asigna 100%
-                </p>
-              <div class="alert-danger" *ngIf="formsCorrect == false">
-                <div class="container-error-message" >
-                  Validar la respuesta
-                </div>
-              </div>
-            </p-footer>
-        </p-card>
-    <br>
-    </div>
+  <!--<div *ngFor="let answer of question.answers; let indexAnswer = index">-->
+  <section>
+    <h4><label for="Verdadero" [(ngModel)]="question.answers[0].statement" value="Verdadero">Verdadero</label></h4>
     <p-footer>
-        <button pButton type="button" label="Adicionar Respuesta" (click)="addNewAnswer ()"></button>
-    </p-footer>
-</p-card>
+      <div>
+          <h5>Calificación: {{question.answers[0].grade}}</h5>
+      <div >
+          <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-danger p-button-outlined" (click)="changeGradeValue (question.answers[0], -10)" [style]="{'margin-left':'10px'}"></button>
+
+        <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-outlined" (click)="changeGradeValue (question.answers[0], 10)" [style]="{'margin-left':'10px'}"></button> <br/>
+        <br><p-slider [(ngModel)]="question.answers[0].grade" [min]="-100" [max]="100"  [step]="10" [style]="{'width':'50%'}"></p-slider>
+      </div>
+
+      </div>
+
+      <p>
+          El valor de la calificacion debe estar entre -100% y 100%.
+          Asigna 100%
+      </p>
+    <div class="alert-danger" *ngIf="formsCorrect == false">
+      <div class="container-error-message" >
+        Validar la respuesta
+      </div>
+    </div>
+  </p-footer>
+  <br><br>
+
+  <h4><label for="Falso" [(ngModel)]="question.answers[1].statement" value="Falso">Falso</label></h4>
+    <p-footer>
+      <div>
+          <h5>Calificación: {{question.answers[1].grade}}</h5>
+      <div >
+          <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-danger p-button-outlined" (click)="changeGradeValue (question.answers[1], -10)" [style]="{'margin-left':'10px'}"></button>
+
+        <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-outlined" (click)="changeGradeValue (question.answers[1], 10)" [style]="{'margin-left':'10px'}"></button> <br/>
+        <br><p-slider [(ngModel)]="question.answers[1].grade" [min]="-100" [max]="100"  [step]="10" [style]="{'width':'50%'}"></p-slider>
+      </div>
+
+      </div>
+
+      <p>
+          El valor de la calificacion debe estar entre -100% y 100%.
+          Asigna 100%
+      </p>
+    <div class="alert-danger" *ngIf="formsCorrect == false">
+      <div class="container-error-message" >
+        Validar la respuesta
+      </div>
+    </div>
+  </p-footer>
+  </section>
+
+<!--</div>-->
 
 <p-card header="Retroalimentacion">
     <div>

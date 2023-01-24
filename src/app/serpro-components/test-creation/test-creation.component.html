@@ -5,9 +5,17 @@
   <br>
   <div class="form-group">
     <h5>Imagen Módulo</h5><br>
-    <input #file type="file" accept='image/*' (change)="preview(file.files)" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" [(ngModel)]="icfesTest.imageTest"/>
+    <input
+        #file
+        type="file"
+        accept="image/*"
+        (change)="preview(file.files)"
+        alife-file-to-base64
+        (onFileChanged)="onFileChanged($event)"
+
+      />
   </div><br>
-    <img [src]="imgURL" height="150" width="150" *ngIf="imgURL">
+  <img [src]="imgURL" height="150" width="150" *ngIf="imgURL" />
 <br><br>
   <p-card>
   <h5>Módulo</h5>
@@ -16,7 +24,7 @@
     <br><br>
   <h5>Título</h5>
       <div>
-        <input type ="text" class="form-control" [(ngModel)]="icfesTest.title" placeholder="Título" >
+        <input type ="text" class="form-control" [(ngModel)]="icfesTest.title" placeholder="Título" required="true">
       </div>
       <p-footer>
         <div class="alert-danger">
@@ -27,7 +35,7 @@
       </p-footer>
   <br><h5>Descripción</h5>
       <div>
-        <input type ="text" class="form-control" name="description" [(ngModel)]="icfesTest.description" placeholder="Descripción" >
+        <input type ="text" class="form-control" name="description" [(ngModel)]="icfesTest.description" placeholder="Descripción" required="true">
       </div>
       <p-footer>
         <div class="alert-danger">
@@ -62,7 +70,7 @@
     [(ngModel)]="itemQuestion" placeholder="Selecciona la pregunta" [virtualScroll]="true" [filter]="true"></p-dropdown><br><br>
   </p-card>
   <br>
-    <button pButton type="button" class="btn btn-primary" label="GUARDAR PREGUNTA" (click)="updateList ()" ></button>&nbsp;
+  <button pButton type="button" class="btn btn-primary" label="AGREGAR PREGUNTA" (click)="updateList()"></button>&nbsp;
   <p-dialog header="Confirmacion" [(visible)]="display">
     {{mensaje}}
   </p-dialog>

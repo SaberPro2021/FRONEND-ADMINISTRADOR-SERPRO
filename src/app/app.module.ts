@@ -36,6 +36,9 @@ import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TruefalseQuestionComponent } from './serpro-components/question-creation/question/truefalse-question/truefalse-question.component';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 
@@ -74,6 +77,9 @@ import { TruefalseQuestionComponent } from './serpro-components/question-creatio
     NgbModule,
     ReactiveFormsModule,
     AlifeFileToBase64Module,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot() // required animations module
 
   ],
   providers: [],

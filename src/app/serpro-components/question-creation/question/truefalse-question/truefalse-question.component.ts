@@ -13,9 +13,9 @@ import { IcfestModuleService } from '../../../../services/service-module/icfest-
   styleUrls: ['./truefalse-question.component.css']
 })
 export class TruefalseQuestionComponent implements OnInit {
-
   question: Question;
-  defaultAnsewersQty: number = 4;
+  answer: Answer;
+  defaultAnsewersQty: number = 2;
   formsCorrect : boolean = true;
   items: SelectItem[];
   item: string;
@@ -32,6 +32,7 @@ export class TruefalseQuestionComponent implements OnInit {
     this.question.questionType = environment.multipleSelectionQuestionType;
 
     for (let cont=0; cont< this.defaultAnsewersQty; cont++) {
+
       this.addNewAnswer();
     }
 
@@ -40,14 +41,14 @@ export class TruefalseQuestionComponent implements OnInit {
         for (let i = 0; i < res.length; i++) {
             this.items.push({label: res[i].knowledgeArea, value: res[i]._id});
         }
+
     });
+
   }
 
   ngOnInit(): void {
 
   }
-
-
 
   showDialog() {
     this.display = true;
@@ -64,6 +65,7 @@ export class TruefalseQuestionComponent implements OnInit {
   removeAnswer (answerIndex) {
     this.question.answers.splice (answerIndex,1);
   }
+
   changeGradeValue (answer, increment: number) {
     if (answer.grade < 100 && increment >0) {
       answer.grade += increment;
@@ -72,22 +74,16 @@ export class TruefalseQuestionComponent implements OnInit {
     }
   }
 
-
   saveQuestion () {
-
     let ansWrds = this.question.answers;
-
+    ansWrds[0].statement="Verdadero";
+    ansWrds[1].statement="Falso";
     if(this.question.title != null){
       if(this.question.icfesModuleId != null){
         if(this.question.statement != null){
-          for (let i of ansWrds){
-            if (i.statement == undefined || i.grade==0){
-              this.formsCorrect =false;
-              break;
-            }
-          }
           if(this.question.feedback != null) {
-            console.log("paso")
+              this.formsCorrect =true;
+
             this.icfestQuestionService.createQuestion(this.question);
             this.showDialog();
           }else{

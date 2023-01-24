@@ -26,7 +26,11 @@ export class IcfestModuleService {
   }
 
   posIcfesModule(icfesModule:IcfesModule)  {
+    console.info("Esta es la URI");
     console.log(`${environment.urlApiQuestionsSerpro}/module`)
+
+    console.log(icfesModule);
+
     return this.http.post(`${environment.urlApiQuestionsSerpro}/module`, icfesModule, {withCredentials: true}).subscribe(
 
       (response) =>{

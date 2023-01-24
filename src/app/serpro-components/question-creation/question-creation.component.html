@@ -2,8 +2,25 @@
 <div class="box">
   <div id="formContent"><br>
 <p-card>
+  <br><br>
     <h2>NUEVA PREGUNTA</h2>
+    <p-dropdown
+  [options]="question"
+  placeholder="Seleccione tipo de pregunta"
+  optionLabel="name"
+  [showClear]="true"
+  [(ngModel)]="selectedTypeQuestion"
+  (onClick)="onClick($event)">
+</p-dropdown>
+  <br><br>
+  <div *ngIf="selectedType == 'SM'">
     <app-multiple-selction-question></app-multiple-selction-question>
+  </div>
+
+  <div *ngIf="selectedType == 'FV'">
+    <app-truefalse-question></app-truefalse-question>
+  </div>
+
   </p-card>
   </div>
 </div>

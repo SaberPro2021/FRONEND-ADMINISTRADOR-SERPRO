@@ -5,6 +5,7 @@ import { IcfesTestService } from '../../services/service-test/icfes-test.service
 import { IcfestQuestionService } from 'src/app/services/service-question/icfest-question.service';
 import { IcfestModuleService } from '../../services/service-module/icfest-module.service';
 import { Question } from 'src/app/models/question.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-test-creation',
@@ -21,7 +22,7 @@ export class TestCreationComponent implements OnInit {
   public imagePath;
   imgURL: any;
   public message: string;
-
+  base64Output: string;
   itemsQuestions: SelectItem[];
   itemQuestion: Question;
 
@@ -30,7 +31,8 @@ export class TestCreationComponent implements OnInit {
   constructor(
     private icfesTestService: IcfesTestService,
     private icfestQuestionService: IcfestQuestionService,
-    private icfesModuleServices: IcfestModuleService
+    private icfesModuleServices: IcfestModuleService,
+    private sant : DomSanitizer
   ) {
     this.mensaje = "Algo falta por llenar, \n Por favor revise los campos que ningunno se encuentre vacio";
     this.questionsSelected = [];
@@ -59,26 +61,30 @@ export class TestCreationComponent implements OnInit {
     this.display = true;
   }
 
-  preview(files) {
-    if (files.length === 0)
-      return;
+  preview(files:FileList): void {
+
+    const urlToBlob = window.URL.createObjectURL(files.item(0))
+    this.imgURL = this.sant.bypassSecurityTrustResourceUrl(urlToBlob);
+    if (files.length === 0) return;
 
     var mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
+      this.message = 'Only images are supported.';
       return;
     }
 
     var reader = new FileReader();
     this.imagePath = files;
-    reader.readAsDataURL(files[0]);
+    if(files[0]){
+      reader.readAsDataURL(files[0]);
+    }
     reader.onload = (_event) => {
       this.imgURL = reader.result;
-    }
+    };
   }
 
-  onFileChanged(e){
-    this.icfesTest.imageTest;
+  onFileChanged(files){
+    this.base64Output = files[0].base64;
   }
 
 
@@ -97,6 +103,14 @@ export class TestCreationComponent implements OnInit {
     this.questionsSelected.push(this.itemQuestion);
   }
 
+  changeGradeValue (answer, increment: number) {
+    if (answer.grade < 100 && increment >0) {
+      answer.grade += increment;
+    } else  if  (answer.grade > -100 && increment <0) {
+      answer.grade += increment;
+    }
+  }
+
   saveQuestion(){
 
     try{
@@ -110,6 +124,7 @@ export class TestCreationComponent implements OnInit {
         if(this.icfesTest.moduleId != null){
           if(this.icfesTest.questions != null){
             if(this.icfesTest.title != null){
+              this.icfesTest.imageTest = this.base64Output;
               this.icfesTestService.posIcfesModule(this.icfesTest);
               this.mensaje = "La prueba se ha subido correctamente";
               this.showDialog();
