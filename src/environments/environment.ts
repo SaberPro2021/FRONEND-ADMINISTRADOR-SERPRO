@@ -1,7 +1,7 @@
 export const environment = {
-  production: false,
+  production: true,
   multipleSelectionQuestionType: 'multiple-selection',
   urlApiQuestionsSerpro:  window["env"]["apiUrl"] || "default",
   msgHeader: '',
-  msgGralApp: 'Bienvenido a SaberPro',
+  msgGralApp: 'Bienvenido a SaberPro Admin',
 };
