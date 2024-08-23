@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 9090",
+    "start": "ng serve --port=9090",
     "stop": "taskkill -F -IM node.exe",
     "build": "ng build",
     "test": "ng test",
