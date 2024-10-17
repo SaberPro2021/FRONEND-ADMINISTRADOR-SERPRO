@@ -20,7 +20,7 @@ export class LoginService {
   }
 
   postLogin(loginModule: LoginModel) {
-
+    loginModule.password = btoa(loginModule.password)
     return this.http.post(`${environment.urlApiQuestionsSerpro}/login`, loginModule,{
       withCredentials: true
     }).subscribe(
